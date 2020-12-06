@@ -19,12 +19,7 @@ using namespace std;
 int main() {
 
     vector<int> v = {3, 4, 5, 6, 7};
-    vector<vector<int>> m = {{1, 1, 2, 2, 1, 3},
-                             {1, 1, 1, 1, 2},
-                             {2, 2},
-                             {4},
-                             {17, 1, 1, 1},
-                             {2, 1}};
+    vector<vector<int>> m = {};
 
    cout << "Bonjour, ce programme va vous présenter différentes fonctions" << endl << endl;
 
@@ -65,7 +60,7 @@ int main() {
    int somme_diag_dg;
    bool somme_diag_dg_erreur = sommeDiagDG(m, somme_diag_dg);
    if (somme_diag_dg_erreur) {
-      cout << "La valeur de la diagonale Droite -> Gauche vaut" << somme_diag_dg << endl;
+      cout << "La valeur de la diagonale Droite -> Gauche vaut " << somme_diag_dg << endl;
    } else {
       cout << "Le processus de calcul de la diagonale Droite -> Gauche a rencontré une erreur" << endl;
    }
@@ -74,7 +69,7 @@ int main() {
    int somme_diag_gd;
    bool somme_diag_gd_erreur = sommeDiagGD(m, somme_diag_gd);
    if (somme_diag_gd_erreur) {
-      cout << "La valeur de la diagonale Gauche -> Droite vaut" << somme_diag_dg << endl;
+      cout << "La valeur de la diagonale Gauche -> Droite vaut " << somme_diag_gd << endl;
    } else {
       cout << "Le processus de calcul de la diagonale Gauche -> Droite a rencontré une erreur" << endl;
    }

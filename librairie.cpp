@@ -53,19 +53,21 @@ ostream& operator << (ostream& os, const Matrice& m)
 
 bool estCarree(const Matrice& m)
 {
-    return estReguliere(m) && m.size() == m[0].size();
+    return m.empty() || (estReguliere(m) && m.size() == m[0].size());
 }
 
 bool estReguliere(const Matrice& m)
 {
-    size_t ligne = m[0].size();
-
-    for(const auto& i : m)
+    if(!m.empty())
     {
-        if (i.size() != ligne)
-            return false;
-    }
+        size_t ligne = m[0].size();
 
+        for(const auto& i : m)
+        {
+            if (i.size() != ligne)
+                return false;
+        }
+    }
     return true;
 }
 
@@ -105,21 +107,21 @@ bool comparerValeurs(const Vecteur& v1, const Vecteur& v2)
     return *max_element(v1.begin(), v1.end()) > *max_element(v2.begin(), v2.end());
 }
 
-void sortMatrice(Matrice& m)
-{
-    sort(m.begin(), m.end(), comparerValeurs);
-}
-
 void shuffleMatrice(Matrice& m)
 {
     unsigned seed = (unsigned)chrono::system_clock::now().time_since_epoch().count();
     shuffle (m.begin(), m.end(), default_random_engine(seed));
 }
 
+void sortMatrice(Matrice& m)
+{
+    sort(m.begin(), m.end(), comparerValeurs);
+}
+
 bool sommeDiagDG(const Matrice& m, int& somme) {
     if (estCarree(m)) {
-        const unsigned long taille = m.size();
-        for (unsigned long i = 0; i < taille; ++i)
+        const unsigned long long taille = m.size();
+        for (unsigned long long i = 0; i < taille; ++i)
         {
             somme += m[i][taille - i - 1];
         }
