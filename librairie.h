@@ -1,3 +1,14 @@
+/*
+-----------------------------------------------------------------------------------
+Nom du fichier : librairie.h
+Auteur(s) : Théo Mirabile, Davide Caracol Mendes
+Date creation : 01.12.2020
+Description : -
+Remarque(s) : -
+Compilateur : Apple clang version 12.0.0
+-----------------------------------------------------------------------------------
+*/
+
 using namespace std;
 
 #ifndef LIBRAIRIE_H
