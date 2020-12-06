@@ -5,17 +5,17 @@ Auteur(s) : Théo Mirabile, Davide Caracol Mendes
 Date creation : 01.12.2020
 Description : -
 Remarque(s) : -
-Compilateur : Apple clang version 12.0.0
+Compilateur : Apple clang version 12.0.0, MinGW-W64 g++ 8.1.0
 -----------------------------------------------------------------------------------
 */
-
-using namespace std;
 
 #ifndef LIBRAIRIE_H
 #define LIBRAIRIE_H
 
-using Vecteur = vector<int>;
-using Matrice = vector<Vecteur>;
+#include <vector>
+
+using Vecteur = std::vector<int>;
+using Matrice = std::vector<Vecteur>;
 
 /**
  * Affiche un vecteur au format (v1, v2, ..., vn)
@@ -23,7 +23,7 @@ using Matrice = vector<Vecteur>;
  * @param m Le vecteur à afficher
  * @return Le flux transformé
  */
-ostream& operator << (ostream& os, const Vecteur& v);
+std::ostream& operator << (std::ostream& os, const Vecteur& v);
 
 /**
  * Affiche une matrice au format [(..),(..),(..)]
@@ -31,7 +31,7 @@ ostream& operator << (ostream& os, const Vecteur& v);
  * @param m La matrice à afficher
  * @return Le flux transformé
  */
-ostream& operator << (ostream& os, const Matrice& m);
+std::ostream& operator << (std::ostream& os, const Matrice& m);
 
 /**
  * Retourne un booléen indiquant si la matrice est carrée

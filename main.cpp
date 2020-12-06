@@ -1,17 +1,19 @@
 /*
 -----------------------------------------------------------------------------------
 Nom du fichier : main.cpp
-Auteur(s) : Théo Mirabile, Davide Caracol Mendes
-Date creation : 01.12.2020
-Description : Affiche les fonctions de la librairie annexe
-Remarque(s) : -
-Compilateur : Apple clang version 12.0.0
+Auteur(s)      : Théo Mirabile, Davide Caracol Mendes
+Date creation  : 01.12.2020
+Description    : Affiche les fonctions de la librairie annexe
+Remarque(s)    : - Une seule matrice initiale est utilisée séquentiellement par toutes
+                   les fonctions.
+                 - Les fonctions ne gèrent pas les matrices vides, à l'exception de
+                   estCarree et estReguliere.
+Compilateur    : Apple clang version 12.0.0, MinGW-w64 g++ 8.1.0
 -----------------------------------------------------------------------------------
 */
 
 #include <cstdlib>
 #include <iostream>
-#include <vector>
 #include "librairie.h"
 
 using namespace std;
@@ -19,7 +21,12 @@ using namespace std;
 int main() {
 
     vector<int> v = {3, 4, 5, 6, 7};
-    vector<vector<int>> m = {};
+    vector<vector<int>> m = {{1, 2, 6, 5, 7, 3},
+                             {2, 4, 9, 3, 3, 1},
+                             {2, 1, 1, 1, 1, 1},
+                             {3, 4, 4, 5, 6, 7},
+                             {1, 2, 1, 2, 1, 2},
+                             {5, 4, 3, 2, 1, 0}};
 
    cout << "Bonjour, ce programme va vous présenter différentes fonctions" << endl << endl;
 
@@ -57,7 +64,7 @@ int main() {
    cout << "La matrice a été trié dans l'ordre décroissant : " << m << endl;
 
    //Affichage de la fonction sommeDiagDG
-   int somme_diag_dg;
+   int somme_diag_dg = 0;
    bool somme_diag_dg_erreur = sommeDiagDG(m, somme_diag_dg);
    if (somme_diag_dg_erreur) {
       cout << "La valeur de la diagonale Droite -> Gauche vaut " << somme_diag_dg << endl;
@@ -66,7 +73,7 @@ int main() {
    }
 
    //Affichage de la fonction sommeDiagGD
-   int somme_diag_gd;
+   int somme_diag_gd = 0;
    bool somme_diag_gd_erreur = sommeDiagGD(m, somme_diag_gd);
    if (somme_diag_gd_erreur) {
       cout << "La valeur de la diagonale Gauche -> Droite vaut " << somme_diag_gd << endl;
